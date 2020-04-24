@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+我的网站|登录
+{% endblock %}
+
+{% block header_extends %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+
+<div class="cont">
+  <div class="form sign-in">
+    {% if not user.is_authenticated %}
+      <h2>Welcome </h2>
+      <label>
+        <form  action="" method="POST">
+          {% csrf_token %}
+          {% for field in login_form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            <p class="text-danger">{{ field.errors.as_text }}</p>
+          {% endfor %}
+          <span class="text-danger">{{ login_form.non_field_errors.0 }}</span>
+
+          <p class="forgot-pass"><a href="{% url 'forgot_password' %}">忘记密码?</a></p>
+          <button type="submit" class="submit" >Sign In</button>
+          <button type="button" class="fb-btn">Connect with <span>QQ</span></button>
+        </form>
+      </label>
+
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>登录</h2>
+        <p>发现新的故事</p>
+      </div>
+
+
+    </div>
+
+  </div>
+
+    {% else %}
+      <span>未登录，跳转到首页...</span>
+      <script type="text/javascript">
+             window.location.href='/';
+      </script>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+

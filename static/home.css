@@ -1,0 +1,48 @@
+#container{
+    float:left;
+    margin-left:30%;
+    margin-top:10em;
+    height:25em;
+    min-width:30em;
+    max-width:35em;
+}
+
+.home-content{
+
+    font-size:170%;
+    text-align:center;
+    margin-top:2em;
+    }
+/*
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+*/
+.box{
+    width:300px;
+    float:right;
+    margin-top:7em;
+    margin-right:30%;
+
+}
+.clear-flooat:after{
+    content: "";
+    display: block;
+    clear:both;
+}
+
+.box li{
+    list-style-type:none;
+}
+.hot-data{
+   text-align:center;
+   margin-top:2em;
+}
+
+.title{
+    margin:0 auto;
+    margin-top:10em;
+    text-align:center;
+    width:300px;
+}
